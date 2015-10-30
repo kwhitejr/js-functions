@@ -82,7 +82,24 @@ function square(x) {
  * @param {number} y
  * @return {number} the result
  */
-
+function calculate(operation, x, y) {
+	if (operation == "add") {
+		console.log(x + " + " + y + " = " + add(x, y));
+		return add(x, y);
+	}
+	if (operation == "subtract") {
+		console.log(x + " - " + y + " = " + subtract(x, y));
+		return subtract(x, y);
+	}
+	if (operation == "multiply") {
+		console.log(x + " * " + y + " = " + multiply(x, y));
+		return multiply(x, y);
+	}
+	if (operation == "divide") {
+		console.log(x + " / " + y + " = " + divide(x, y));
+		return divide(x, y);
+	}
+}
 
 /**
  * Returns true if `a` is greater than `b`.
@@ -90,7 +107,9 @@ function square(x) {
  * @param {number} b
  * @return {boolean} `a` is larger than `b`
  */
-
+function isGreaterThan(a, b) {
+	return a > b;
+}
 
 /**
  * Returns true if `a` is less than `b`.
@@ -98,7 +117,9 @@ function square(x) {
  * @param {number} b
  * @return {boolean} `a` is smaller than `b`
  */
-
+function isLessThan(a, b) {
+	return a < b;
+}
 
 /**
  * Returns true if `a` and `b` are equal.
@@ -106,7 +127,9 @@ function square(x) {
  * @param {number} b
  * @return {boolean} the numbers are equal
  */
-
+function areEqual(a, b) {
+	return a === b;
+}
 
 /**
  * Returns the smallest value of two numbers.
@@ -114,7 +137,12 @@ function square(x) {
  * @param {number} y
  * @return {number} the smallest number
  */
-
+function minimum(x, y) {
+	if (x < y) {
+		return x;
+	}
+	return y;
+}
 
 /**
  * Returns the largest value of two numbers.
@@ -122,21 +150,30 @@ function square(x) {
  * @param {number} y
  * @return {number} the largest number
  */
-
+function maximum(x, y) {
+	if (x > y) {
+		return x;
+	}
+	return y;
+}
 
 /**
  * Returns true if `n` is even.
  * @param {number} n
  * @return {boolean} the number is even
  */
-
+function isEven(n) {
+	return n % 2 === 0;
+}
 
 /**
  * Returns true if `n` is odd.
  * @param {number} n
  * @return {boolean} the number is odd
  */
-
+function isOdd(n) {
+	return n % 2 !== 0;
+}
 
 /**
  * Returns a letter grade.
@@ -149,7 +186,23 @@ function square(x) {
  * @param {number} total maximum possible score
  * @return {string} the score represented as a letter grade
  */
-
+function letterGrade(score, total) {
+	var grade = score / total;
+	if (grade >= 0.9) {
+		return "A";
+	} 
+	else if (grade >= 0.8) {
+		return "B";
+	} 
+	else if (grade >= 0.7) {
+		return "C";
+	} 
+	else if (grade >= 0.6) {
+		return "D";
+	} else {
+		return "F";
+	}
+}
 
 /**
  * Checks if a `restaurant` object has a `reviews` property.
@@ -158,7 +211,15 @@ function square(x) {
  * @param {object} restaurant   represents a restaurant object
  * @return {object} restaurant
  */
-
+function incrementReviews(restaurant) {
+	if (restaurant.reviews) {
+		restaurant.reviews += 1;
+	}
+	else {
+		restaurant.reviews = 1;
+	}
+	return restaurant;
+}
 
 /**
  * Joins two strings with a space.
@@ -166,7 +227,9 @@ function square(x) {
  * @param {string} word2
  * @return {string} joined the words joined with a space
  */
-
+function combine(word1, word2) {
+	return word1 + " " + word2;
+}
 
 /**
  * Returns a circle object with the properties `circumference` and `area`.
@@ -175,4 +238,10 @@ function square(x) {
  * @param {number} radius
  * @return {object} circle
  */
-
+function createCircle(radius) {
+	var circle = {};
+	circle.circumference = 2 * radius * Math.PI;
+	// circle.area = Math.PI * radius * radius;
+	circle.area = Math.PI * square(radius);
+	return circle;
+}
